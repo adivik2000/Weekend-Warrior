@@ -1,0 +1,148 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Portfolio Igniter</title>
+<link href="{{ STATIC_URL }}css/bootstrap.css" rel="stylesheet" type="text/css">
+
+<link href="{{ STATIC_URL }}css/render.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.parallax-1.1.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}js/bootstrap-scrollspy.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}js/bootstrap-collapse.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.localscroll-1.2.7-min.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.scrollTo-1.4.2-min.js"></script>
+
+
+<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+
+<style> #page {opacity:0;}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+#land {
+  background: url('{{ STATIC_URL }}img/sp.jpg') no-repeat center center fixed;
+  background-color: #333333;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+
+#wrapper {
+  position: relative;
+  width: 800px;
+  min-height: 400px;
+  margin: 100px auto;
+  color: #333;
+}
+
+
+h2 {
+padding:10px;
+font-size: 40px;
+line-height: 50px;
+font-weight: 300;
+}
+
+h1 {
+padding:0 10px;
+font-size: 60px;
+line-height: 80px;
+font-weight: 300;
+}
+
+h4 {
+float:right;
+}
+
+h3 {
+font-weight:300;
+margin-left:15px;
+}
+</style>
+
+</head>
+
+
+<body id="land">
+  
+  <div class="container">
+  
+  
+  <div class="navbar">
+  <div class="navbar-inner">
+    <a class="brand" href="#">Title</a>
+    <ul class="nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">Link</a></li>
+      <li><a href="#">Link</a></li>
+    </ul>
+  </div>
+</div>
+  
+  
+  <div class="row-fluid" style="margin:30px 0px;">
+  <div class="span7">
+      <div class="row">
+	  <div class="span12 color" style="background-color:#c03536;margin-top:2%;padding:10px;">
+			  <h2>#203, Hotel Name, Near the Circle</h2>
+			  <h2>Location, Chennai</h2>
+			  <h4>Address</h4>
+	  </div>
+	  </div>
+	  <div class="row">
+	  <div class="span8 color" style="background-color:#c03536;margin-top:2%;padding:10px;">
+	          <h2>10AM-10PM 11</h2>
+			  <h4>Timing</h4>
+	  </div>
+	  <div class="span4 color" style="background-color:#c03536;margin-top:2%;padding:10px;">
+	          <h2>4.5 Star</h2>
+			  <h4>Rating</h4>
+	  </div>
+	  </div>
+	  <div class="row">
+	  <div class="span12 color" style="margin-top:2%;padding:2px;">
+	  <img src="{{ STATIC_URL }}img/sp.jpg"/>  
+	  </div>
+	  </div>
+  </div>
+  <div class="span5" style="margin-top:10px;">
+  <h1>Royal Darbar Hotel and Restaurants</h1>
+  </div>
+  
+  <div class="span5" style="margin-top:10px;">
+  <h2>Cusines:</h2>
+  <h3>Mughlai</h3>
+  <h3>Chinese</h3>
+  <h3>Thandoori</h3>
+  
+  </div>
+  
+  
+  </div>
+  </div>
+  
+  
+  
+  <script>
+  
+  $(document).ready(function() {
+
+var colors=new Array("#co3636","#389837","#1f9ae7","#fd8c09","#613cbf");
+
+
+$('.color').css({"background-color":colors[Math.floor((Math.random()*colors.length))]});
+
+});
+  
+  </script>
+  
+  
+  
+</body>
+</html>

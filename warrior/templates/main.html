@@ -1,0 +1,184 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Portfolio Igniter</title>
+<link href="{{ STATIC_URL }}css/bootstrap.css" rel="stylesheet" type="text/css">
+
+<link href="{{ STATIC_URL }}css/render.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.parallax-1.1.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}js/bootstrap-scrollspy.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}js/bootstrap-collapse.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.localscroll-1.2.7-min.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.scrollTo-1.4.2-min.js"></script>
+
+<script type="text/javascript">
+<!--
+if (screen.width <= 699) {
+document.location = "http://augustinas.eu/dev/4/mobile.html";
+};
+if ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i))) {
+   location.replace("http://augustinas.eu/dev/4/mobile.html");
+};
+//-->
+</script>
+
+<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+
+<style> #page {opacity:0;}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+#land {
+  <!--background: url('{{ STATIC_URL }}img/sp.jpg') no-repeat center center fixed;-->
+  background-color: #333333;
+  -webkit-background-size: cover;
+  background-size: auto, cover;
+}
+
+#wrapper {
+  position: relative;
+  width: 800px;
+  min-height: 400px;
+  margin: 100px auto;
+  color: #333;
+}
+
+
+h2 {
+padding:10px;
+font-size: 40px;
+line-height: 50px;
+font-weight: 300;
+}
+
+h1 {
+padding:0 10px;
+font-size: 60px;
+line-height: 80px;
+font-weight: 500;
+}
+
+h4 {
+float:right;
+}
+
+h3 {
+font-weight:300;
+margin-left:15px;
+}
+</style>
+
+</head>
+
+
+<body id="land">
+  
+  <div class="container">
+  
+  
+  
+  
+  <div class="row-fluid" style="margin:30px 0px;">
+  <div class="span7">
+      <div class="row">
+	  <div class="span12 color" style="background-color:#c03536;margin-top:2%;padding:10px;">
+			  <h2>{{dd.location.address}}</h2>
+			  <h4>Address</h4>
+	  </div>
+	  </div>
+	  <div class="row">
+	  <div class="span8 color" style="background-color:#c03536;margin-top:2%;padding:10px;">
+            {% if ',' in dd.timings %}
+            <h3>{{dd.timings}}</h3>
+            {% else %}
+	          <h2>{{dd.timings}}</h2>
+            {% endif %}
+			  <h4>Timing</h4>
+	  </div>
+	  <div class="span4 color" style="background-color:#c03536;margin-top:2%;padding:10px;">
+	          <h2>{{dd.editorRating.overall}} Star</h2>
+			  <h4>Rating</h4>
+	  </div>
+	  </div>
+	  <div class="row">
+	  <div class="span12 color" style="margin-top:2%;padding:2px;">
+      {% if not dd.photos.0.photo.url %}
+        <img src="{{ STATIC_URL }}img/sp.jpg"/> 
+      {% else %}  
+	      <img src="{{dd.photos.0.photo.url}}" height="365" width="550"/>  
+      {% endif %}
+	  </div>
+	  </div>
+  </div>
+  <div class="span5 color" style="margin-top:10px;">
+  <h1>{{dd.name}}</h1>
+  </div>
+  
+  <div class="span5 color" style="margin-top:10px;padding:10px;">
+  
+  {% for c in cuisines %}
+  <h2>{{c}}</h2>
+  {% endfor %}
+  <h4>Cusines</h4>
+  </div>
+  {% if dd.userReviews.0 %}
+  <div class="span5 color" style="margin-top:10px;">
+  <h2>Reviews:</h2>
+  <h3><blockquote>{{dd.userReviews.0.review.reviewText|truncatewords:60}}"-{{dd.userReviews.0.review.author}}</blockquote></h3>
+  {% else %}
+  <div class="span5 color" style="margin-top:10px;">
+  <h2>Info:</h2>
+  
+  <h3>Phone:{{dd.phone}}</h3>
+  <h3>Average cost for two :{{dd.avgCostForTwo}}</h3>
+
+  {% endif %}
+  <button id="btnInit">Find my location</button>  
+  </div>
+  
+  
+  </div>
+  </div>
+  
+  
+  <script>  
+        jQuery(window).ready(function(){  
+            jQuery("#btnInit").click(initiate_geolocation);  
+        });  
+        function initiate_geolocation() {  
+            navigator.geolocation.getCurrentPosition(handle_geolocation_query);  
+        }  
+        function handle_geolocation_query(position){  
+            alert('Lat: ' + position.coords.latitude + ' ' +  
+                  'Lon: ' + position.coords.longitude);  
+        }  
+  </script>  
+  <script>
+  
+  $(document).ready(function() {
+
+var colors=new Array("#c03636","#389837","#1f9ae7","#fd8c09","#613cbf","magenta","teal");
+//var images = new Array("{{ STATIC_URL }}img/sp2.jpg","{{ STATIC_URL }}img/sp4.jpg","{{ STATIC_URL }}img/sp5.jpg","{{ STATIC_URL }}img/sp6.jpg","{{ STATIC_URL }}img/sp7.jpg","{{ STATIC_URL }}img/sp8.jpg","{{ STATIC_URL }}img/sp10.jpg","{{ STATIC_URL }}img/sp11.jpg","{{ STATIC_URL }}img/sp13.jpg","{{ STATIC_URL }}img/sp14.jpg","{{ STATIC_URL }}img/sp16.jpg")
+var images = new Array("{{ STATIC_URL }}img/sp5.jpg")
+
+$('.color').css({"background-color":colors[Math.floor((Math.random()*colors.length))]});
+$('body').css({"background":"url("+images[Math.floor((Math.random()*images.length))]+") no-repeat center center fixed"});
+
+
+
+});
+  
+  </script>
+  
+  
+  
+</body>
+</html>
