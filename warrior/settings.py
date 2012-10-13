@@ -50,8 +50,9 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = os.path.join(PROJECT_ROOT,'static')
-STATIC_ROOT = ''
+MEDIA_ROOT = ''
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+
 STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
@@ -59,7 +60,10 @@ STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, "static"),
 )
 
-MEDIA_URL = '/media/'
+
+MEDIA_URL = ''
+
+ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 STATIC_URL = '/media/'
 
@@ -68,7 +72,7 @@ STATIC_URL = '/media/'
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+    #'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
 # Make this unique, and don't share it with anybody.
